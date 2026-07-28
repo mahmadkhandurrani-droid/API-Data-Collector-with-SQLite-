@@ -1,0 +1,5 @@
+{
+    "api_url": "https://jsonplaceholder.typicode.com/users",
+    "database": "collector.db",
+    "timeout": 5
+}
