@@ -1,0 +1,45 @@
+from database import Database
+
+
+def test_create_table():
+    db = Database(":memory:")
+
+    db.create_table()
+
+    db.cursor.execute("""
+    SELECT name
+    FROM sqlite_master
+    WHERE type='table'
+    AND name='users'
+    """)
+
+    table = db.cursor.fetchone()
+
+    assert table is not None
+
+    db.close()
+
+
+def test_insert_user():
+    db = Database(":memory:")
+
+    db.create_table()
+
+    user = {
+        "id": 1,
+        "name": "Ali",
+        "username": "ali123",
+        "email": "ali@test.com"
+    }
+
+    db.insert_user(user)
+
+    db.cursor.execute("SELECT * FROM users")
+
+    result = db.cursor.fetchone()
+
+    assert result[1] == "Ali"
+    assert result[2] == "ali123"
+    assert result[3] == "ali@test.com"
+
+    db.close()
