@@ -27,6 +27,15 @@ API_Data_Collector/
 │── config.json
 │── collector.db
 └── README.md
+|__test
+Run Tests
+pytest
+or
+pytest -v
+Expected Output
+========================
+3 passed
+========================
 
 Technologies Used
 
