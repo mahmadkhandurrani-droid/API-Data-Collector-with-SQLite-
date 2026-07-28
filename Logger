@@ -1,0 +1,17 @@
+import logging
+
+
+class Logger:
+    def __init__(self):
+        self.log = logging.getLogger("APICollector")
+        self.log.setLevel(logging.INFO)
+
+        if not self.log.handlers:
+            file_handler = logging.FileHandler("collector.log")
+
+            formatter = logging.Formatter(
+                "%(asctime)s - %(levelname)s - %(message)s"
+            )
+
+            file_handler.setFormatter(formatter)
+            self.log.addHandler(file_handler)
