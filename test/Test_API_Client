@@ -1,0 +1,11 @@
+from api_client import APIClient
+
+
+def test_api_client_attributes():
+    client = APIClient(
+        "https://example.com",
+        5
+    )
+
+    assert client.url == "https://example.com"
+    assert client.timeout == 5
