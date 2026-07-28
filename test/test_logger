@@ -1,0 +1,7 @@
+from logger import Logger
+
+
+def test_logger_created():
+    logger = Logger()
+
+    assert logger.log is not None
